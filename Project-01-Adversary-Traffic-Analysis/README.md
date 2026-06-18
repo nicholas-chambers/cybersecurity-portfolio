@@ -2,7 +2,7 @@
 
 ## Objective
 
-Simulate attacker activity against a vulnerable Linux host and analyze the resulting traffic from a defensive perspective.
+Simulate attacker activity against a vulnerable Linux host and analyze the resulting network traffic from a defensive perspective.
 
 ## Lab Environment
 
@@ -20,18 +20,45 @@ Simulate attacker activity against a vulnerable Linux host and analyze the resul
 - Wireshark
 - Wazuh
 
-## Activities Performed
+## What I Did
 
-- Network reconnaissance
-- Service enumeration
-- Credential validation using Hydra
-- FTP authentication
-- File retrieval
-- Packet analysis using Wireshark
+1. Verified connectivity between systems.
+2. Performed service enumeration using Nmap.
+3. Identified exposed services on the target.
+4. Used Hydra to validate FTP credentials.
+5. Authenticated to the FTP service.
+6. Enumerated files on the target system.
+7. Retrieved a file from the target host.
+8. Captured and analyzed network traffic using Wireshark.
+9. Investigated attacker activity from a blue-team perspective.
 
 ## Key Findings
 
 - Weak FTP credentials were present.
 - Multiple vulnerable services were exposed.
-- Reconnaissance and authentication traffic were visible in packet captures.
-- File transfer activity could be observed and analyzed from the blue-team perspective.
+- Reconnaissance activity was visible in packet captures.
+- FTP authentication activity was captured and analyzed.
+- File transfer activity could be reconstructed from network traffic.
+
+## Skills Demonstrated
+
+- Virtualization
+- Linux Administration
+- Nmap
+- Hydra
+- FTP
+- Wireshark
+- Packet Analysis
+- Network Reconnaissance
+- Technical Documentation
+
+## Technologies Used
+
+- Oracle VirtualBox
+- Kali Linux
+- Ubuntu Linux
+- Metasploitable 2
+- Wireshark
+- Wazuh
+- Nmap
+- Hydra
