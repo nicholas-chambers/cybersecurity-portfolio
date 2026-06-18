@@ -2,7 +2,7 @@
 
 ## Objective
 
-Simulate attacker activity against a vulnerable Linux host and analyze the resulting network traffic from a defensive perspective.
+Simulate attacker activity against a vulnerable Linux host and analyze the resulting traffic from a defensive perspective.
 
 ## Lab Environment
 
@@ -16,49 +16,65 @@ Simulate attacker activity against a vulnerable Linux host and analyze the resul
 
 ### Blue Team
 - Ubuntu Linux
-- IP: 192.168.56.103
 - Wireshark
 - Wazuh
 
-## What I Did
+## Service Enumeration
 
-1. Verified connectivity between systems.
-2. Performed service enumeration using Nmap.
-3. Identified exposed services on the target.
-4. Used Hydra to validate FTP credentials.
-5. Authenticated to the FTP service.
-6. Enumerated files on the target system.
-7. Retrieved a file from the target host.
-8. Captured and analyzed network traffic using Wireshark.
-9. Investigated attacker activity from a blue-team perspective.
+An Nmap scan was performed to identify exposed services on the target host.
+
+![Nmap Scan](screenshots/nmap_recon.png)
+
+The scan identified multiple exposed services including FTP, SSH, SMB, HTTP, MySQL, and PostgreSQL.
+
+## Credential Validation
+
+Hydra was used against the FTP service to validate credentials.
+
+![Hydra Success](screenshots/hydra_success.png)
+
+The credentials `msfadmin:msfadmin` were successfully identified.
+
+## Initial Access and File Retrieval
+
+FTP access was established using the validated credentials.
+
+![FTP Access](screenshots/ftp_access.png)
+
+A file was successfully downloaded from the target system to demonstrate access.
+
+## Reconnaissance Detection
+
+Wireshark was used from the defensive perspective to observe reconnaissance activity.
+
+![SYN Detection](screenshots/syn_detection.png)
+
+SYN packets targeting multiple ports were identified, indicating active service discovery.
+
+## Blue Team Analysis
+
+FTP authentication and file transfer activity were visible within packet captures.
+
+![FTP Detection](screenshots/ftp_detection.png)
+
+The session could be reconstructed from captured network traffic.
 
 ## Key Findings
 
 - Weak FTP credentials were present.
-- Multiple vulnerable services were exposed.
-- Reconnaissance activity was visible in packet captures.
-- FTP authentication activity was captured and analyzed.
-- File transfer activity could be reconstructed from network traffic.
+- Numerous unnecessary services were exposed.
+- Reconnaissance activity was easily identifiable.
+- FTP authentication activity was observable in network traffic.
+- File transfers could be reconstructed from packet captures.
 
 ## Skills Demonstrated
 
-- Virtualization
-- Linux Administration
-- Nmap
-- Hydra
-- FTP
-- Wireshark
-- Packet Analysis
 - Network Reconnaissance
-- Technical Documentation
-
-## Technologies Used
-
-- Oracle VirtualBox
-- Kali Linux
-- Ubuntu Linux
-- Metasploitable 2
+- Service Enumeration
+- Credential Validation
+- Linux Administration
+- Packet Analysis
 - Wireshark
-- Wazuh
-- Nmap
 - Hydra
+- Nmap
+- Technical Documentation
